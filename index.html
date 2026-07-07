@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jo Jo Whitefield | Art &amp; Retail Advisor</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Archivo:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ivory:#F2EEE7;
+    --ink:#1F1B16;
+    --oxblood:#5E2B26;
+    --greige:#9C9184;
+    --line:#DCD5C9;
+    --img-a:#C9BFB0;
+    --img-b:#B4A896;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+  body{
+    background:var(--ivory);
+    color:var(--ink);
+    font-family:'Archivo',sans-serif;
+    font-size:15px;
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+  }
+  .serif{font-family:'Cormorant Garamond',serif}
+  em{font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--oxblood)}
+
+  /* ---------- Nav ---------- */
+  nav{
+    display:flex;justify-content:space-between;align-items:center;
+    padding:22px 40px;border-bottom:1px solid var(--line);
+    position:sticky;top:0;background:var(--ivory);z-index:10;
+  }
+  .wordmark{font-family:'Cormorant Garamond',serif;font-size:20px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;text-decoration:none;color:var(--ink)}
+  nav ul{display:flex;gap:34px;list-style:none}
+  nav a{font-size:11px;letter-spacing:.22em;text-transform:uppercase;text-decoration:none;color:var(--ink)}
+  nav ul a:hover{color:var(--oxblood)}
+
+  /* ---------- Hero ---------- */
+  .hero{text-align:center;padding:110px 24px 70px}
+  .hero h1{
+    font-family:'Cormorant Garamond',serif;font-weight:500;
+    font-size:clamp(52px,9vw,108px);line-height:1.02;letter-spacing:.01em;
+  }
+  .hero .title{
+    margin-top:26px;font-size:12px;letter-spacing:.34em;text-transform:uppercase;color:var(--ink);
+  }
+  .hero .title span{color:var(--greige);padding:0 10px}
+
+  /* ---------- Image placeholders ---------- */
+  .ph{
+    position:relative;display:flex;align-items:center;justify-content:center;
+    color:#fff;overflow:hidden;
+  }
+  .ph::before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,var(--img-a),var(--img-b))}
+  .ph .label{
+    position:relative;font-size:10px;letter-spacing:.26em;text-transform:uppercase;
+    border:1px solid rgba(255,255,255,.65);padding:10px 18px;color:rgba(255,255,255,.92);
+    text-align:center;line-height:1.9;
+  }
+  .hero-img{height:66vh;min-height:420px;margin:0 40px}
+
+  /* ---------- Statement ---------- */
+  .statement{max-width:860px;margin:0 auto;padding:120px 24px;text-align:center}
+  .statement p{
+    font-family:'Cormorant Garamond',serif;font-weight:400;
+    font-size:clamp(26px,3.6vw,40px);line-height:1.35;
+  }
+  .statement .kicker{margin-bottom:34px}
+  .kicker{font-family:'Archivo',sans-serif;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--greige)}
+
+  /* ---------- Bio ---------- */
+  .bio{
+    display:grid;grid-template-columns:5fr 6fr;gap:70px;align-items:center;
+    max-width:1200px;margin:0 auto;padding:40px 40px 130px;
+  }
+  .bio .ph{height:560px}
+  .bio h2{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(30px,3.4vw,42px);line-height:1.15;margin:16px 0 26px}
+  .bio p{margin-bottom:18px;color:#3A342C;max-width:52ch}
+  .bio .more{display:inline-block;margin-top:8px;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--oxblood);text-decoration:none;border-bottom:1px solid var(--oxblood);padding-bottom:5px}
+  .bio-full{display:none}
+  .bio-full.open{display:block}
+
+  /* ---------- Two doors ---------- */
+  .doors{border-top:1px solid var(--line)}
+  .doors-grid{display:grid;grid-template-columns:1fr 1fr;max-width:1400px;margin:0 auto}
+  .door{padding:90px 70px;border-right:1px solid var(--line)}
+  .door:last-child{border-right:none}
+  .door h3{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:34px;margin:18px 0 20px;line-height:1.15}
+  .door p{color:#3A342C;max-width:46ch;margin-bottom:14px}
+  .door .fine{font-size:12.5px;color:var(--greige)}
+  .door .cta{
+    display:inline-block;margin-top:30px;font-size:11px;letter-spacing:.24em;text-transform:uppercase;
+    color:var(--ivory);background:var(--ink);padding:16px 30px;text-decoration:none;
+  }
+  .door .cta:hover{background:var(--oxblood)}
+  .door.retail .cta{background:transparent;color:var(--ink);border:1px solid var(--ink)}
+  .door.retail .cta:hover{border-color:var(--oxblood);color:var(--oxblood)}
+
+  /* ---------- Newsletter ---------- */
+  .newsletter{background:var(--ink);color:var(--ivory);text-align:center;padding:120px 24px;border-top:1px solid var(--line)}
+  .newsletter .kicker{color:#8E8578}
+  .newsletter h2{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(40px,6vw,64px);margin:22px 0 14px}
+  .newsletter h2 em{color:#C99A7B}
+  .newsletter p{max-width:52ch;margin:0 auto 40px;color:#C7BFB2}
+  .signup{display:flex;max-width:440px;margin:0 auto;border:1px solid #55504736;border:1px solid #5a5348}
+  .signup input{
+    flex:1;background:transparent;border:none;padding:16px 20px;color:var(--ivory);
+    font-family:'Archivo',sans-serif;font-size:13px;letter-spacing:.04em;outline:none;
+  }
+  .signup input::placeholder{color:#8E8578}
+  .signup button{
+    background:var(--ivory);color:var(--ink);border:none;padding:16px 26px;cursor:pointer;
+    font-family:'Archivo',sans-serif;font-size:11px;letter-spacing:.22em;text-transform:uppercase;
+  }
+  .signup button:hover{background:#C99A7B}
+
+  /* ---------- Footer ---------- */
+  footer{padding:80px 40px 50px;max-width:1200px;margin:0 auto}
+  .foot-grid{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;flex-wrap:wrap}
+  footer .wordmark{font-size:24px}
+  footer .contact{font-size:12px;letter-spacing:.14em;text-transform:uppercase;line-height:2.4;text-align:right}
+  footer .contact a{color:var(--ink);text-decoration:none}
+  footer .contact a:hover{color:var(--oxblood)}
+  .legal{margin-top:50px;padding-top:24px;border-top:1px solid var(--line);display:flex;justify-content:space-between;font-size:11px;color:var(--greige);letter-spacing:.06em;flex-wrap:wrap;gap:10px}
+
+  /* ---------- Mobile ---------- */
+  @media (max-width:820px){
+    nav{padding:18px 20px}
+    nav ul{gap:18px}
+    nav ul li:nth-child(n+3){display:none}
+    .hero{padding:70px 18px 44px}
+    .hero-img{margin:0 18px;height:48vh}
+    .bio{grid-template-columns:1fr;gap:44px;padding:20px 24px 90px}
+    .bio .ph{height:420px}
+    .doors-grid{grid-template-columns:1fr}
+    .door{border-right:none;border-bottom:1px solid var(--line);padding:64px 28px}
+    .door:last-child{border-bottom:none}
+    footer .contact{text-align:left}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="wordmark" href="#">Jo Jo Whitefield</a>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#newsletter">Well Acquired</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<header class="hero">
+  <h1 class="serif">Jo Jo Whitefield</h1>
+  <p class="title">Art <span>&amp;</span> Retail Advisor</p>
+</header>
+
+<div class="ph hero-img">
+  <div class="label">Full-bleed lifestyle image<br>Jo Jo at home, art in frame</div>
+</div>
+
+<section class="statement">
+  <p class="kicker">Toronto</p>
+  <p class="serif">Advising private collectors and <em>modern</em> retailers with a single, well-trained eye. <em>Always</em> looking.</p>
+</section>
+
+<section class="bio" id="about">
+  <div class="ph"><div class="label">Portrait<br>Jo Jo in her home</div></div>
+  <div>
+    <p class="kicker">About</p>
+    <h2>Fifteen years of decisions most people <em>never</em> see.</h2>
+    <p>As a senior buyer and merchandise director for Macy&rsquo;s, Holt Renfrew, Canada Goose and Elte, Jo Jo&rsquo;s job was to commit, months ahead and with real money on the line, to what people would want before they knew they wanted it. Buying at that level is a discipline of the eye. It teaches you to hold a point of view under pressure, to listen as carefully as you look, and to be accountable for your taste in the only way that matters: whether it was right.</p>
+    <div id="bio-full" class="bio-full">
+      <p>Art was never a departure from that work. It was where her eye kept going. Years of collecting, studying and standing in front of things she couldn&rsquo;t stop thinking about eventually became a formal certificate in art business from Sotheby&rsquo;s Institute, and then a practice. For the past four years she has advised private collectors through Robin Rosenberg Fine Art, guiding acquisitions for clients who collect with intention, whether they are placing a first serious work or shaping a collection they&rsquo;ll live with for decades.</p>
+      <p>Clients come to her for her eye, and stay for how well she understands theirs. Every collection she helps build is unmistakably the client&rsquo;s own: shaped by their story, their spaces, their ambitions, and sharpened by her judgment about what is truly worth owning.</p>
+      <p>She still keeps one foot in the world that trained her, advising retailers and emerging fashion and lifestyle brands on merchandising, assortment and go-to-market strategy. Jo Jo holds a business degree from Emory University and lives in Toronto, where she is always looking.</p>
+    </div>
+    <a class="more" id="bio-toggle" href="#about" onclick="toggleBio(); return false;">Read the full story</a>
+    <script>
+      function toggleBio(){
+        var full = document.getElementById("bio-full");
+        var link = document.getElementById("bio-toggle");
+        var open = full.classList.toggle("open");
+        link.textContent = open ? "Close" : "Read the full story";
+      }
+    </script>
+  </div>
+</section>
+
+<section class="doors" id="services">
+  <div class="doors-grid">
+    <div class="door art">
+      <p class="kicker">Art Advisory</p>
+      <h3 class="serif">Collections built with <em>intention</em>.</h3>
+      <p>Acquisition guidance for private collectors &mdash; from a first serious work to a collection you&rsquo;ll live with for decades.</p>
+      <p class="fine">Art advisory offered through Robin Rosenberg Fine Art.</p>
+      <a class="cta" href="mailto:joanna@robinrosenbergfineart.com?subject=Art%20advisory%20inquiry">Inquire</a>
+    </div>
+    <div class="door retail">
+      <p class="kicker">Retail &amp; Brand Advisory</p>
+      <h3 class="serif">Merchandising, honed at the <em>highest</em> level.</h3>
+      <p>Strategy for retailers and emerging fashion and lifestyle brands: assortment, merchandising, wholesale and go-to-market.</p>
+      <p class="fine">Engagements are limited and by conversation.</p>
+      <a class="cta" href="mailto:hello@jojowhitefield.com?subject=Retail%20advisory%20inquiry">Book a working session</a>
+    </div>
+  </div>
+</section>
+
+<section class="newsletter" id="newsletter">
+  <p class="kicker">The Newsletter</p>
+  <h2>Well <em>Acquired</em></h2>
+  <p>An occasional letter on art, objects and the retail of it all. What&rsquo;s worth owning, and why.</p>
+  <div class="signup">
+    <input type="email" id="nl-email" placeholder="Email address" aria-label="Email address">
+    <button type="button" onclick="subscribeBeehiiv()">Sign up</button>
+  </div>
+  <script>
+    // Replace this with Jo Jo's real Beehiiv publication URL
+    var BEEHIIV_URL = "https://wellacquired.beehiiv.com/subscribe";
+    function subscribeBeehiiv(){
+      var email = document.getElementById("nl-email").value.trim();
+      var url = email ? BEEHIIV_URL + "?email=" + encodeURIComponent(email) : BEEHIIV_URL;
+      window.open(url, "_blank");
+    }
+  </script>
+</section>
+
+<footer id="contact">
+  <div class="foot-grid">
+    <div>
+      <p class="wordmark serif">Jo Jo Whitefield</p>
+      <p style="font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--greige);margin-top:8px">Art &amp; Retail Advisor</p>
+    </div>
+    <div class="contact">
+      <a href="mailto:joanna@robinrosenbergfineart.com?subject=Art%20advisory%20inquiry">Art: joanna@robinrosenbergfineart.com</a><br>
+      <a href="mailto:hello@jojowhitefield.com">Retail &amp; general: hello@jojowhitefield.com</a><br>
+      <a href="https://www.instagram.com/jojowhitefield_art/" target="_blank" rel="noopener">Instagram</a><br>
+      Toronto
+    </div>
+  </div>
+  <div class="legal">
+    <span>&copy; 2026 Jo Jo Whitefield</span>
+    <span>Art advisory offered through Robin Rosenberg Fine Art</span>
+  </div>
+</footer>
+
+</body>
+</html>
