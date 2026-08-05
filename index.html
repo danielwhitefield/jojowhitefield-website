@@ -82,6 +82,8 @@
   .doors-grid{display:grid;grid-template-columns:1fr 1fr;max-width:1400px;margin:0 auto}
   .door{padding:90px 70px;border-right:1px solid var(--line)}
   .door:last-child{border-right:none}
+  .door-img{max-width:420px;margin-bottom:38px;overflow:hidden}
+  .door-img img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block}
   .door h3{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:34px;margin:18px 0 20px;line-height:1.15}
   .door p{color:#3A342C;max-width:46ch;margin-bottom:14px}
   .door .fine{font-size:12.5px;color:var(--greige)}
@@ -194,6 +196,11 @@
 <section class="doors" id="services">
   <div class="doors-grid">
     <div class="door art">
+      <div class="door-img">
+        <img src="images/door-art.jpg"
+             alt="A framed geometric painting hung in a home stairwell, with Jo Jo Whitefield standing beside it"
+             width="1000" height="1250" loading="lazy" decoding="async">
+      </div>
       <p class="kicker">Art Advisory</p>
       <h3 class="serif">Collections built with <em>intention</em>.</h3>
       <p>Acquisition guidance for private collectors &mdash; from a first serious work to a collection you&rsquo;ll live with for decades.</p>
@@ -201,6 +208,11 @@
       <a class="cta" href="mailto:joanna@robinrosenbergfineart.com?subject=Art%20advisory%20inquiry">Inquire</a>
     </div>
     <div class="door retail">
+      <div class="door-img">
+        <img src="images/door-retail.jpg"
+             alt="Jo Jo Whitefield working at a laptop in a dressing room lined with shelved shoes and folded knitwear"
+             width="1000" height="1250" loading="lazy" decoding="async">
+      </div>
       <p class="kicker">Retail &amp; Brand Advisory</p>
       <h3 class="serif">Merchandising, honed at the <em>highest</em> level.</h3>
       <p>Strategy for retailers and emerging fashion and lifestyle brands: assortment, merchandising, wholesale and go-to-market.</p>
